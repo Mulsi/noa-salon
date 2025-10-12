@@ -1,6 +1,6 @@
 <template>
     <div v-if="homepageData">
-        <div class="relative w-full aspect-[16/9]">
+        <div class="relative w-full aspect-[16/9] max-h-[700px]">
             <img v-if="width >= 768" :src="urlFor(homepageData.heroImageDesktop).url()" alt="Hero image" class="absolute inset-0 w-full h-full object-cover" />
             <img v-else :src="urlFor(homepageData.heroImageMobile).url()" alt="Hero image" class="absolute inset-0 w-full h-full object-cover" />
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center z-10">
