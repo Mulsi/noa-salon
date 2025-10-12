@@ -3,8 +3,14 @@ import tailwindcss from "@tailwindcss/vite";
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
-  modules: ['@nuxtjs/sanity', '@nuxt/fonts', 'shadcn-nuxt', '@vueuse/nuxt', 'shadcn-nuxt', '@nuxtjs/google-fonts'],
+  modules: ['@nuxtjs/sanity', '@nuxt/fonts', 'shadcn-nuxt', '@vueuse/nuxt', 'shadcn-nuxt', '@nuxtjs/google-fonts', '@nuxtjs/seo'],
   devtools: { enabled: true },
+  site: {
+    url: 'https://noa-salon.com',
+    name: 'Noa Salon',
+    description: 'Where beauty meets comfort.',
+    defaultLocale: 'sl',
+  },
   css: ['~/assets/css/main.css'],
   sanity: {
     projectId: 'xy5z0niy',
