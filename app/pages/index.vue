@@ -1,6 +1,6 @@
 <template>
     <div v-if="homepageData">
-        <div class="relative w-full aspect-[16/9] max-h-[700px]">
+        <div class="relative w-full aspect-[16/9] max-h-[700px] mt-16">
             <img v-if="width >= 768" :src="urlFor(homepageData.heroImageDesktop).url()" alt="Hero image" class="absolute inset-0 w-full h-full object-cover" />
             <img v-else :src="urlFor(homepageData.heroImageMobile).url()" alt="Hero image" class="absolute inset-0 w-full h-full object-cover" />
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center z-10">
@@ -14,7 +14,7 @@
                     <img :src="urlFor(homepageData.aboutImage).url()" alt="Anja Kolenc" class="rounded-3xl w-full h-auto object-cover" />
                 </div>
                 <div class="w-full md:w-1/2 flex flex-col justify-center">
-                    <h2 class="mb-4">{{ homepageData.aboutHeading }}</h2>
+                    <h2 class="mb-2 md:mb-4">{{ homepageData.aboutHeading }}</h2>
                     <p class="font-bold text-xl md:text-2xl pb-4">{{ homepageData.aboutSubheading }}</p>
                     <div class="flex flex-col gap-3 md:gap-4 text-base md:text-lg">
                         <PortableText :value="homepageData.aboutDescription" />
@@ -24,7 +24,7 @@
         </div>
         <div class="bg-light-pink">
             <div class="main-container flex flex-col gap-4 items-center justify-center py-8">
-                <h2>{{ homepageData.testimonialsTitle }}</h2>
+                <h2 class="w-full text-left md:text-center">{{ homepageData.testimonialsTitle }}</h2>
                 <Carousel
                     class="w-full md:w-[92%] mx-auto"
                     :opts="{
@@ -37,7 +37,7 @@
                             <Card class="bg-testimonial-pink h-full">
                                 <CardContent class="flex flex-col items-center justify-center p-6 min-h-[300px] h-full">
                                     <img src="/img/stars.png" class="w-1/3 pb-4" />
-                                    <h3>{{ item.title }}</h3>
+                                    <h4 class="md:pb-4">{{ item.title }}</h4>
                                     <p class="pb-4">{{ item.description }}</p>
                                     <p class="font-bold">- {{ item.name }}</p>
                                 </CardContent>
@@ -53,13 +53,13 @@
         <div class="bg-light-pink flex flex-col gap-4 items-center justify-center py-8">
             <div class="main-container">
                 <!-- Main services title -->
-                <h2 class="text-center py-8">{{ homepageData.servicesTitle }}</h2>
+                <h2 class="text-left md:text-center py-8 w-full">{{ homepageData.servicesTitle }}</h2>
                 
                 <!-- Salon Services Section -->
                 <div class="mb-12">
                     <!-- Title outside the grid -->
-                    <h4 class="mb-6 text-left">
-                        {{ homepageData.salonServiceTitle }}
+                    <h4 class="mb-0 md:mb-6 text-left">
+                        -> {{ homepageData.salonServiceTitle }}
                     </h4>
                     <!-- Grid without the title -->
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -68,12 +68,12 @@
                                 <img :src="urlFor(service.image).url()" :alt="service.title" class="w-full h-full object-cover" />
                             </div>
                             <div class="p-6">
-                                <h3 class="text-2xl mb-2">{{ service.title }}</h3>
-                                <Button class="bg-light-peach text-button-pink hover:bg-button-pink-hover cursor-pointer">
-                                    <NuxtLink :to="service.buttonLink">
+                                <h4 class="mb-2">{{ service.title }}</h4>
+                                <NuxtLink :to="service.buttonLink">
+                                    <Button class="bg-light-peach text-button-pink hover:bg-button-pink-hover cursor-pointer w-full">
                                         {{ service.buttonText }}
-                                    </NuxtLink>
-                                </Button>
+                                    </Button>
+                                </NuxtLink>
                             </div>
                         </div>
                     </div>
@@ -86,9 +86,10 @@
                 
                 <!-- Academy Services Section -->
                 <div class="mb-8">
+                    <h2 class="md:hidden text-left md:text-center w-full">{{ homepageData.servicesTitle }}</h2>
                     <!-- Title outside the grid -->
-                    <h4 class="mb-6 text-left">
-                        {{ homepageData.academyServiceTitle }}
+                    <h4 class="mb-0 md:mb-6 text-left">
+                        -> {{ homepageData.academyServiceTitle }}
                     </h4>
                     <!-- Grid without the title -->
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -98,11 +99,11 @@
                             </div>
                             <div class="p-6">
                                 <h3 class="text-2xl mb-2">{{ service.title }}</h3>
-                                <Button class="bg-light-peach text-button-pink hover:bg-button-pink-hover cursor-pointer">
-                                    <NuxtLink :to="service.buttonLink">
+                                <NuxtLink :to="service.buttonLink">
+                                    <Button class="bg-light-peach text-button-pink hover:bg-button-pink-hover cursor-pointer w-full">
                                         {{ service.buttonText }}
-                                    </NuxtLink>
-                                </Button>
+                                    </Button>
+                                </NuxtLink>
                             </div>
                         </div>
                     </div>
@@ -111,7 +112,7 @@
         </div>
         <div v-if="galleryData" class="bg-light-pink flex flex-col gap-4 items-center justify-center pt-8 pb-32">
             <div class="main-container">
-                <h2 class="text-center py-8">{{ galleryData.title }}</h2>
+                <h2 class="w-full text-left md:text-center md:py-8">{{ galleryData.title }}</h2>
                 <Carousel
                     class="w-full md:w-[92%] mx-auto"
                     :opts="{
@@ -119,10 +120,10 @@
                     }"
                 >
                     <CarouselContent class="-ml-1">
-                    <CarouselItem v-for="(item, index) in galleryData.images" :key="index" class="md:basis-1/2">
-                        <div class="h-full">
-                            <Card class="bg-testimonial-pink h-full p-0">
-                                <CardContent class="flex flex-col items-center justify-center w-full h-full p-0">
+                    <CarouselItem v-for="(item, index) in galleryData.images" :key="index" class="pl-1 md:basis-1/2">
+                        <div class="p-1 h-full">
+                            <Card class="bg-testimonial-pink h-full py-0">
+                                <CardContent class="flex flex-col items-center justify-center p-0 min-h-[300px] w-full">
                                     <img :src="urlFor(item).url()" class="rounded-3xl" />
                                 </CardContent>
                             </Card>

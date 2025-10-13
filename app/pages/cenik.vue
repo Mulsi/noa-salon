@@ -2,7 +2,7 @@
     <div v-if="priceListData" class="bg-light-pink min-h-screen">
         <div class="main-container py-16">
             <!-- Page Title -->
-            <div class="text-center mb-16">
+            <div class="md:text-center mt-8 mb-4 md:my-8">
                 <h2>{{ priceListData.title }}</h2>
             </div>
 
@@ -14,7 +14,7 @@
                     class="bg-testimonial-pink rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300"
                 >
                     <!-- Category Title -->
-                    <h3 class="mb-6 pb-4 border-b-2 border-button-pink">{{ category.categoryName }}</h3>
+                    <h4 class="md:mb-6 pb-4 border-b-2 border-button-pink">{{ category.categoryName }}</h4>
                     
                     <!-- Main Services -->
                     <div v-if="category.services && category.services.length > 0" class="space-y-3 mb-6">
@@ -49,12 +49,14 @@
             </div>
 
             <!-- Contact CTA Section -->
-            <div class="mt-16 text-center bg-light-brown rounded-3xl p-12">
-                <h4 class="mb-4">Rezervirajte svoj termin</h4>
-                <p class="text-lg text-gray-700 mb-6">Kontaktirajte nas za več informacij ali rezervacijo termina.</p>
-                <Button class="bg-light-peach text-button-pink hover:bg-button-pink transition-colors duration-300 px-8 py-6 text-lg">
-                    <NuxtLink to="mailto:noa@noa-salon.com" target="_blank">Kontakt</NuxtLink>
-                </Button>
+            <div class="mt-16 md:text-center bg-light-brown rounded-3xl p-8 md:p-12">
+                <h4 class="md:mb-4">Rezervirajte svoj termin</h4>
+                <p class="md:text-lg text-gray-700 mb-6">Kontaktirajte nas za več informacij ali rezervacijo termina.</p>
+                <NuxtLink to="mailto:noa@noa-salon.com" target="_blank">
+                    <Button class="bg-light-peach text-button-pink hover:bg-button-pink transition-colors duration-300 px-8 py-6 md:text-lg cursor-pointer">
+                        Kontakt
+                    </Button>
+                </NuxtLink>
             </div>
         </div>
     </div>

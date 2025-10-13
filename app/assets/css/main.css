@@ -3,6 +3,15 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Algiers Font - Custom @font-face for better Safari iOS support */
+@font-face {
+    font-family: 'Algiers';
+    src: url('/assets/fonts/Algiers-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 .main-container {
     max-width: 1200px;
     width: 100%;
@@ -14,6 +23,9 @@
 @media screen and (min-width: 1024px) {
     h1 {
         font-size: 14rem !important;
+    }
+    h2 {
+        margin-bottom: 1rem;
     }
 }
 
@@ -27,12 +39,14 @@
     }
     h2 {
         font-size: 3rem !important;
+        padding-bottom: .5rem;
     }
     h3 {
         font-size: 1.5rem !important;
     }
     h4 {
         font-size: 2rem !important;
+        padding-bottom: 1rem;
     }
 }
 
@@ -47,11 +61,8 @@
     h1 {
         font-size: 8rem !important;
     }
-    h2 {
-        font-size: 2rem !important;
-    }
     h3 {
-        font-size: 1.5rem !important;
+        font-size: 1rem !important;
     }
     h4 {
         font-size: 2rem !important;
@@ -60,6 +71,14 @@
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Algiers', sans-serif;
+}
+
+a.header-logo {
+    font-family: 'Algiers', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 0.9;
+    color: #423d3c;
 }
 
 h1 {
@@ -72,7 +91,6 @@ h2 {
     font-size: 4rem;
     font-weight: 400;
     line-height: 1.2;
-    margin-bottom: 1rem;
     color: #333;
 }
 
@@ -116,7 +134,7 @@ p, a, button {
 }
 
 .bg-button-pink {
-    background-color: #DFCECA;
+    background-color: #beaeaa;
 }
 
 .bg-light-pink {

@@ -22,7 +22,7 @@ export default defineNuxtConfig({
   },
   fonts: {
     families: [
-      { name: 'Algiers', provider: 'none', src: './assets/fonts/Algiers-Regular.otf' },
+      { name: 'Algiers', provider: 'none', src: './assets/fonts/Algiers-Regular.woff2' },
       { name: 'Helvetica-Thin', provider: 'none', src: './assets/fonts/Helvetica-Thin.ttf' },
     ]
   },
