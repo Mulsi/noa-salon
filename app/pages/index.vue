@@ -68,7 +68,7 @@
                                 <img :src="urlFor(service.image).url()" :alt="service.title" class="w-full h-full object-cover" />
                             </div>
                             <div class="p-6">
-                                <h4 class="mb-2">{{ service.title }}</h4>
+                                <h4 class="mb-2 md:mb-6">{{ service.title }}</h4>
                                 <NuxtLink :to="service.buttonLink">
                                     <Button class="bg-light-peach text-button-pink hover:bg-button-pink-hover cursor-pointer w-full">
                                         {{ service.buttonText }}
@@ -98,7 +98,7 @@
                                 <img :src="urlFor(service.image).url()" :alt="service.title" class="w-full h-full object-cover" />
                             </div>
                             <div class="p-6">
-                                <h3 class="text-2xl mb-2">{{ service.title }}</h3>
+                                <h4 class="mb-2 md:mb-6">{{ service.title }}</h4>
                                 <NuxtLink :to="service.buttonLink">
                                     <Button class="bg-light-peach text-button-pink hover:bg-button-pink-hover cursor-pointer w-full">
                                         {{ service.buttonText }}
