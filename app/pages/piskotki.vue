@@ -2,7 +2,7 @@
     <div v-if="cookiesData" class="bg-light-pink min-h-screen">
         <div class="main-container py-16">
             <!-- Page Title -->
-            <div class="text-center mb-12">
+            <div class="text-center my-8">
                 <h2>{{ cookiesData.title }}</h2>
             </div>
 

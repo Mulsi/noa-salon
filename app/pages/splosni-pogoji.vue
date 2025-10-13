@@ -2,7 +2,7 @@
     <div v-if="generalConditionsData" class="bg-light-pink min-h-screen">
         <div class="main-container py-16">
             <!-- Page Title -->
-            <div class="text-center mb-12">
+            <div class="md:text-center my-8">
                 <h2>{{ generalConditionsData.title }}</h2>
             </div>
 
