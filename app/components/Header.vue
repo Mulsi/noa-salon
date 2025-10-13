@@ -2,10 +2,8 @@
     <header class="w-full h-16 bg-beige fixed top-0 left-0 right-0 z-50 shadow-sm">
         <div class="main-container h-full flex items-center justify-between px-4">
             <!-- Logo on the left -->
-            <NuxtLink to="/" class="text-2xl font-bold text-button-pink hover:opacity-80 transition-opacity">
-                <a class="header-logo">
-                    noa.
-                </a>
+            <NuxtLink to="/" class="header-logo text-2xl font-bold text-button-pink hover:opacity-80 transition-opacity">
+                noa.
             </NuxtLink>
 
             <!-- Desktop Navigation (hidden on mobile) -->
