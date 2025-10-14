@@ -158,4 +158,31 @@ const { data: galleryData, error: galleryError } = await useSanityQuery<Gallery>
 const { width } = useWindowSize()
 
 const hasError = computed(() => !homepageData.value || !galleryData.value || homepageError.value || galleryError.value);
+
+// SEO Meta Tags
+useHead({
+    title: 'Noa Salon - Where beauty meets comfort',
+    meta: [
+        {
+            name: 'description',
+            content: 'Noa Salon - butični salon v Ljubljani, kjer lepota sreča udobje. Strokovne lepotne storitve, kozmetika in izobraževanja.'
+        },
+        {
+            property: 'og:title',
+            content: 'Noa Salon - Where beauty meets comfort'
+        },
+        {
+            property: 'og:description',
+            content: 'Noa Salon - butični salon v Ljubljani, kjer lepota sreča udobje. Strokovne lepotne storitve, kozmetika in izobraževanja.'
+        },
+        {
+            property: 'og:type',
+            content: 'website'
+        },
+        {
+            property: 'og:url',
+            content: 'https://noa-salon.com'
+        }
+    ]
+});
 </script>

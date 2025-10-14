@@ -53,4 +53,31 @@ import { Button } from "~/components/ui/button";
 const { data: academyDetailData, error: academyDetailError } = await useSanityQuery<AcademyDetail>(ACADEMYDETAIL_QUERY);
 
 const hasError = computed(() => !academyDetailData.value || academyDetailError.value);
+
+// SEO Meta Tags
+useHead({
+    title: 'Noa Academy - Izobraževanja in tečaji',
+    meta: [
+        {
+            name: 'description',
+            content: 'Noa Academy - izobraževalni tečaji za začetnike in strokovnjake. Praktično znanje, individualni pristop in najnovejše tehnike v sodelovanju z vrhunskimi strokovnjaki.'
+        },
+        {
+            property: 'og:title',
+            content: 'Noa Academy - Izobraževanja in tečaji'
+        },
+        {
+            property: 'og:description',
+            content: 'Noa Academy - izobraževalni tečaji za začetnike in strokovnjake. Praktično znanje, individualni pristop in najnovejše tehnike v sodelovanju z vrhunskimi strokovnjaki.'
+        },
+        {
+            property: 'og:type',
+            content: 'website'
+        },
+        {
+            property: 'og:url',
+            content: 'https://noa-salon.com/academy'
+        }
+    ]
+});
 </script>

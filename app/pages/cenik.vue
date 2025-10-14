@@ -73,5 +73,32 @@ import type { PriceList } from "~/models/sanity";
 import { Button } from "~/components/ui/button";
 
 const { data: priceListData, error: priceListError } = await useSanityQuery<PriceList>(PRICELIST_QUERY);
-    const hasError = computed(() => !priceListData.value || priceListError.value);
+const hasError = computed(() => !priceListData.value || priceListError.value);
+
+// SEO Meta Tags
+useHead({
+    title: 'Cenik - Noa Salon',
+    meta: [
+        {
+            name: 'description',
+            content: 'Cenik storitev Noa Salon. Pregled cen za vse lepotne storitve v našem salonu v Ljubljani.'
+        },
+        {
+            property: 'og:title',
+            content: 'Cenik - Noa Salon'
+        },
+        {
+            property: 'og:description',
+            content: 'Cenik storitev Noa Salon. Pregled cen za vse lepotne storitve v našem salonu v Ljubljani.'
+        },
+        {
+            property: 'og:type',
+            content: 'website'
+        },
+        {
+            property: 'og:url',
+            content: 'https://noa-salon.com/cenik'
+        }
+    ]
+});
 </script>

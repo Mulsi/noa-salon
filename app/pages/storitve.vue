@@ -57,4 +57,31 @@ import { Button } from "~/components/ui/button";
 const { data: serviceDetailData, error: serviceDetailError } = await useSanityQuery<ServiceDetail>(SERVICEDETAIL_QUERY);
 
 const hasError = computed(() => !serviceDetailData.value || serviceDetailError.value);
+
+// SEO Meta Tags
+useHead({
+    title: 'Storitve - Noa Salon',
+    meta: [
+        {
+            name: 'description',
+            content: 'Profesionalne lepotne storitve v Noa Salon: ličenje, urejanje nohtov, oblikovanje obrvi in trepalnic. Vsaka storitev je izvedena s skrbjo in natančnostjo za popolno celoto.'
+        },
+        {
+            property: 'og:title',
+            content: 'Storitve - Noa Salon'
+        },
+        {
+            property: 'og:description',
+            content: 'Profesionalne lepotne storitve v Noa Salon: ličenje, urejanje nohtov, oblikovanje obrvi in trepalnic. Vsaka storitev je izvedena s skrbjo in natančnostjo za popolno celoto.'
+        },
+        {
+            property: 'og:type',
+            content: 'website'
+        },
+        {
+            property: 'og:url',
+            content: 'https://noa-salon.com/storitve'
+        }
+    ]
+});
 </script>

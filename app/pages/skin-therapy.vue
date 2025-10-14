@@ -52,5 +52,32 @@ import { Button } from "~/components/ui/button";
 
 const { data: skinTherapyData, error: skinTherapyError } = await useSanityQuery<SkinTherapy>(SKINTHERAPY_QUERY);
 const hasError = computed(() => !skinTherapyData.value || skinTherapyError.value);
+
+// SEO Meta Tags
+useHead({
+    title: 'Kozmetika in terapija kože - Noa Salon',
+    meta: [
+        {
+            name: 'description',
+            content: 'Skin Therapy - prefinjene nege obraza v sodelovanju z Dr. E. Voss kozmetiko. Znanstveno dovršene formulacije za različne potrebe kože z vidnimi in dolgotrajnimi rezultati.'
+        },
+        {
+            property: 'og:title',
+            content: 'Kozmetika in terapija kože - Noa Salon'
+        },
+        {
+            property: 'og:description',
+            content: 'Skin Therapy - prefinjene nege obraza v sodelovanju z Dr. E. Voss kozmetiko. Znanstveno dovršene formulacije za različne potrebe kože z vidnimi in dolgotrajnimi rezultati.'
+        },
+        {
+            property: 'og:type',
+            content: 'website'
+        },
+        {
+            property: 'og:url',
+            content: 'https://noa-salon.com/skin-therapy'
+        }
+    ]
+});
 </script>
 

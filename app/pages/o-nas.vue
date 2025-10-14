@@ -41,4 +41,31 @@ import { useSanityImageUrl } from "../../studio-noa-salon/sanityImageUrl";
 
 const { data: aboutData } = await useSanityQuery<About>(ABOUT_QUERY);
 const { urlFor } = useSanityImageUrl();
+
+// SEO Meta Tags
+useHead({
+    title: 'O nas - Noa Salon',
+    meta: [
+        {
+            name: 'description',
+            content: 'Spoznajte Noa Salon - butični salon v Ljubljani, kjer lepota sreča udobje. Naša zgodba, vrednote in predanost kakovosti v vsaki storitvi.'
+        },
+        {
+            property: 'og:title',
+            content: 'O nas - Noa Salon'
+        },
+        {
+            property: 'og:description',
+            content: 'Spoznajte Noa Salon - butični salon v Ljubljani, kjer lepota sreča udobje. Naša zgodba, vrednote in predanost kakovosti v vsaki storitvi.'
+        },
+        {
+            property: 'og:type',
+            content: 'website'
+        },
+        {
+            property: 'og:url',
+            content: 'https://noa-salon.com/o-nas'
+        }
+    ]
+});
 </script>

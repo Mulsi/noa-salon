@@ -22,6 +22,33 @@ import type { GeneralConditions } from "~/models/sanity";
 import { PortableText } from '@portabletext/vue';
 
 const { data: generalConditionsData } = await useSanityQuery<GeneralConditions>(GENERALCONDITIONS_QUERY);
+
+// SEO Meta Tags
+useHead({
+    title: 'Splošni pogoji - Noa Salon',
+    meta: [
+        {
+            name: 'description',
+            content: 'Splošni pogoji uporabe storitev Noa Salon. Pravila in pogoji za rezervacijo in uporabo naših storitev.'
+        },
+        {
+            property: 'og:title',
+            content: 'Splošni pogoji - Noa Salon'
+        },
+        {
+            property: 'og:description',
+            content: 'Splošni pogoji uporabe storitev Noa Salon. Pravila in pogoji za rezervacijo in uporabo naših storitev.'
+        },
+        {
+            property: 'og:type',
+            content: 'website'
+        },
+        {
+            property: 'og:url',
+            content: 'https://noa-salon.com/splosni-pogoji'
+        }
+    ]
+});
 </script>
 
 <style lang="css">

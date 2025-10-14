@@ -22,6 +22,33 @@ import type { Cookies } from "~/models/sanity";
 import { PortableText } from '@portabletext/vue';
 
 const { data: cookiesData } = await useSanityQuery<Cookies>(COOKIES_QUERY);
+
+// SEO Meta Tags
+useHead({
+    title: 'Politika piškotkov - Noa Salon',
+    meta: [
+        {
+            name: 'description',
+            content: 'Politika piškotkov Noa Salon. Informacije o uporabi piškotkov na naši spletni strani.'
+        },
+        {
+            property: 'og:title',
+            content: 'Politika piškotkov - Noa Salon'
+        },
+        {
+            property: 'og:description',
+            content: 'Politika piškotkov Noa Salon. Informacije o uporabi piškotkov na naši spletni strani.'
+        },
+        {
+            property: 'og:type',
+            content: 'website'
+        },
+        {
+            property: 'og:url',
+            content: 'https://noa-salon.com/piskotki'
+        }
+    ]
+});
 </script>
 
 <style lang="css">
