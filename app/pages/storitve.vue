@@ -1,5 +1,10 @@
 <template>
-    <div v-if="serviceDetailData" class="bg-light-pink min-h-screen">
+    <!-- Error Display -->
+    <ErrorDisplay 
+        v-if="hasError" 
+        :message="'Prišlo je do napake pri nalaganju podatkov. Prosimo, poskusite znova.'"
+    />
+    <div v-else-if="serviceDetailData" class="bg-light-pink min-h-screen">
         <div class="main-container py-16">
             <!-- Page Title -->
             <div class="md:text-center mt-8 mb-4 md:my-8">
@@ -27,7 +32,7 @@
                         <div class="flex-1 mb-6 text-gray-700">
                             <PortableText :value="service.serviceDescription" />
                         </div>
-                        <NuxtLink :to="service.buttonLink">
+                        <NuxtLink :to="service.buttonLink" target="_blank">
                             <Button class="w-full bg-light-peach text-button-pink hover:bg-button-pink hover:text-white transition-colors duration-300 cursor-pointer">
                                 {{ service.buttonText }}
                             </Button>
@@ -49,5 +54,7 @@ import type { ServiceDetail } from "~/models/sanity";
 import { PortableText } from '@portabletext/vue';
 import { Button } from "~/components/ui/button";
 
-const { data: serviceDetailData } = await useSanityQuery<ServiceDetail>(SERVICEDETAIL_QUERY);
+const { data: serviceDetailData, error: serviceDetailError } = await useSanityQuery<ServiceDetail>(SERVICEDETAIL_QUERY);
+
+const hasError = computed(() => !serviceDetailData.value || serviceDetailError.value);
 </script>

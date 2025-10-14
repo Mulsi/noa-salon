@@ -1,5 +1,11 @@
 <template>
-    <div v-if="homepageData">
+    <!-- Error Display -->
+    <ErrorDisplay 
+        v-if="hasError" 
+        :message="'Prišlo je do napake pri nalaganju podatkov. Prosimo, poskusite znova.'"
+    />
+    
+    <div v-else-if="homepageData">
         <div class="relative w-full aspect-[16/9] max-h-[700px] mt-16">
             <img v-if="width >= 768" :src="urlFor(homepageData.heroImageDesktop).url()" alt="Hero image" class="absolute inset-0 w-full h-full object-cover" />
             <img v-else :src="urlFor(homepageData.heroImageMobile).url()" alt="Hero image" class="absolute inset-0 w-full h-full object-cover" />
@@ -12,8 +18,8 @@
         <!-- Introduction Section -->
         <div class="bg-light-pink pb-8 pt-16 md:pt-20 lg:pt-40">
             <div class="main-container px-4">
-                <div class="text-center">
-                    <p class="introduction">
+                <div class="md:text-center">
+                    <p class="text-xl md:text-3xl">
                         Butični salon sredi Ljubljane, v katerem lepota sreča udobje. Noa združuje strokovnost, estetiko in osebni pristop v udobno izkušnjo, ki ženskam vliva dodatno samozavest in občutek lepote.
                     </p>
                 </div>
@@ -21,7 +27,7 @@
         </div>
         
         <div class="bg-light-pink">
-            <div class="main-container flex flex-col-reverse md:flex-row gap-6 md:gap-8 px-4 py-8 md:py-24 lg:py-32">
+            <div class="main-container flex flex-col md:flex-row gap-6 md:gap-8 px-4 py-8 md:py-24 lg:py-32">
                 <div class="w-full md:w-1/2">
                     <img :src="urlFor(homepageData.aboutImage).url()" alt="Anja Kolenc" class="rounded-3xl w-full h-auto object-cover" />
                 </div>
@@ -147,7 +153,9 @@ import { Card, CardContent } from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
 
 const { urlFor } = useSanityImageUrl();
-const { data: homepageData } = await useSanityQuery<Homepage>(HOMEPAGE_QUERY);
-const { data: galleryData } = await useSanityQuery<Gallery>(GALLERY_QUERY);
+const { data: homepageData, error: homepageError } = await useSanityQuery<Homepage>(HOMEPAGE_QUERY);
+const { data: galleryData, error: galleryError } = await useSanityQuery<Gallery>(GALLERY_QUERY);
 const { width } = useWindowSize()
+
+const hasError = computed(() => !homepageData.value || !galleryData.value || homepageError.value || galleryError.value);
 </script>

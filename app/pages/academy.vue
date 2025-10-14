@@ -1,5 +1,10 @@
 <template>
-    <div v-if="academyDetailData" class="bg-light-pink min-h-screen">
+    <!-- Error Display -->
+        <ErrorDisplay 
+        v-if="hasError" 
+        :message="'Prišlo je do napake pri nalaganju podatkov. Prosimo, poskusite znova.'"
+    />
+    <div v-else-if="academyDetailData" class="bg-light-pink min-h-screen">
         <div class="main-container py-16">
             <!-- Page Title -->
             <div class="md:text-center mt-8 mb-4 md:my-8">
@@ -45,5 +50,7 @@ import type { AcademyDetail } from "~/models/sanity";
 import { PortableText } from '@portabletext/vue';
 import { Button } from "~/components/ui/button";
 
-const { data: academyDetailData } = await useSanityQuery<AcademyDetail>(ACADEMYDETAIL_QUERY);
+const { data: academyDetailData, error: academyDetailError } = await useSanityQuery<AcademyDetail>(ACADEMYDETAIL_QUERY);
+
+const hasError = computed(() => !academyDetailData.value || academyDetailError.value);
 </script>

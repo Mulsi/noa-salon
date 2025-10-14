@@ -1,5 +1,10 @@
 <template>
-    <div v-if="priceListData" class="bg-light-pink min-h-screen">
+    <!-- Error Display -->
+    <ErrorDisplay 
+        v-if="hasError" 
+        :message="'Prišlo je do napake pri nalaganju podatkov. Prosimo, poskusite znova.'"
+    />
+    <div v-else-if="priceListData" class="bg-light-pink min-h-screen">
         <div class="main-container py-16">
             <!-- Page Title -->
             <div class="md:text-center mt-8 mb-4 md:my-8">
@@ -50,11 +55,11 @@
 
             <!-- Contact CTA Section -->
             <div class="mt-16 md:text-center bg-light-brown rounded-3xl p-8 md:p-12">
-                <h4 class="md:mb-4">Rezervirajte svoj termin</h4>
-                <p class="md:text-lg text-gray-700 mb-6">Kontaktirajte nas za več informacij ali rezervacijo termina.</p>
-                <NuxtLink to="mailto:noa@noa-salon.com" target="_blank">
+                <h4 v-if="priceListData.ctaTitle" class="md:mb-4">{{ priceListData.ctaTitle }}</h4>
+                <p v-if="priceListData.ctaDescription" class="md:text-lg text-gray-700 mb-6">{{ priceListData.ctaDescription }}</p>
+                <NuxtLink v-if="priceListData.buttonLink && priceListData.buttonText" :to="priceListData.buttonLink" target="_blank">
                     <Button class="bg-light-peach text-button-pink hover:bg-button-pink transition-colors duration-300 px-8 py-6 md:text-lg cursor-pointer">
-                        Kontakt
+                        {{ priceListData.buttonText }}
                     </Button>
                 </NuxtLink>
             </div>
@@ -67,5 +72,6 @@ import { PRICELIST_QUERY } from "~/constants/query";
 import type { PriceList } from "~/models/sanity";
 import { Button } from "~/components/ui/button";
 
-const { data: priceListData } = await useSanityQuery<PriceList>(PRICELIST_QUERY);
+const { data: priceListData, error: priceListError } = await useSanityQuery<PriceList>(PRICELIST_QUERY);
+    const hasError = computed(() => !priceListData.value || priceListError.value);
 </script>

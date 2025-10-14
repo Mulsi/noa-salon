@@ -8,7 +8,7 @@
 
             <!-- Content -->
             <div class="bg-light-brown rounded-3xl p-8 md:p-12">
-                <div class="prose prose-lg max-w-none">
+                <div class="cookies-text prose prose-lg max-w-none">
                     <PortableText :value="cookiesData.description" />
                 </div>
             </div>
@@ -23,3 +23,11 @@ import { PortableText } from '@portabletext/vue';
 
 const { data: cookiesData } = await useSanityQuery<Cookies>(COOKIES_QUERY);
 </script>
+
+<style lang="css">
+.cookies-text {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+</style>

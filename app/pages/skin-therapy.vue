@@ -1,5 +1,10 @@
 <template>
-    <div v-if="skinTherapyData" class="bg-light-pink min-h-screen">
+    <!-- Error Display -->
+    <ErrorDisplay 
+        v-if="hasError" 
+        :message="'Prišlo je do napake pri nalaganju podatkov. Prosimo, poskusite znova.'"
+    />
+    <div v-else-if="skinTherapyData" class="bg-light-pink min-h-screen">
         <div class="main-container py-16">
             <!-- Page Title -->
             <div class="md:text-center mt-8 mb-4 md:my-8">
@@ -45,6 +50,7 @@ import type { SkinTherapy } from "~/models/sanity";
 import { PortableText } from '@portabletext/vue';
 import { Button } from "~/components/ui/button";
 
-const { data: skinTherapyData } = await useSanityQuery<SkinTherapy>(SKINTHERAPY_QUERY);
+const { data: skinTherapyData, error: skinTherapyError } = await useSanityQuery<SkinTherapy>(SKINTHERAPY_QUERY);
+const hasError = computed(() => !skinTherapyData.value || skinTherapyError.value);
 </script>
 

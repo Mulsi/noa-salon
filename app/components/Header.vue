@@ -1,5 +1,10 @@
 <template>
-    <header class="w-full h-16 bg-beige fixed top-0 left-0 right-0 z-50 shadow-sm">
+    <!-- Error Display -->
+    <ErrorDisplay 
+        v-if="hasError" 
+        :message="'Prišlo je do napake pri nalaganju podatkov. Prosimo, poskusite znova.'"
+    />
+    <header v-else class="w-full h-16 bg-beige fixed top-0 left-0 right-0 z-50 shadow-sm">
         <div class="main-container h-full flex items-center justify-between px-4">
             <!-- Logo on the left -->
             <NuxtLink to="/" class="header-logo text-2xl font-bold text-button-pink hover:opacity-80 transition-opacity">
@@ -279,8 +284,10 @@ const showStoritveSubmenu = ref(false);
 const showAcademyDropdown = ref(false);
 const showAcademySubmenu = ref(false);
 
-const { data: serviceDetailData } = await useSanityQuery<ServiceDetail>(SERVICEDETAIL_HEADER_QUERY);
-const { data: academyDetailData } = await useSanityQuery<AcademyDetail>(ACADEMYDETAIL_HEADER_QUERY);
+const { data: serviceDetailData, error: serviceDetailError } = await useSanityQuery<ServiceDetail>(SERVICEDETAIL_HEADER_QUERY);
+const { data: academyDetailData, error: academyDetailError } = await useSanityQuery<AcademyDetail>(ACADEMYDETAIL_HEADER_QUERY);
+
+const hasError = computed(() => !serviceDetailData.value || !academyDetailData.value || serviceDetailError.value || academyDetailError.value);
 
 // Extract service type titles
 const serviceTypes = computed(() => {

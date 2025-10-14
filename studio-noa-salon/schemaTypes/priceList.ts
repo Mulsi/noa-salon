@@ -106,6 +106,26 @@ export const priceListType = defineType({
         },
       ],
     }),
+    defineField({
+      name: 'ctaTitle',
+      title: 'Naslov cta',
+      type: 'string',
+    }),
+    defineField({
+      name: 'ctaDescription',
+      title: 'Opis cta',
+      type: 'text',
+    }),
+    defineField({
+      name: 'buttonText',
+      title: 'Tekst gumba',
+      type: 'string',
+    }),
+    defineField({
+      name: 'buttonLink',
+      title: 'Link gumba',
+      type: 'string',
+    }),
   ],
   preview: {
     select: {

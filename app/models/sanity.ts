@@ -37,6 +37,10 @@ export interface Gallery {
 export interface PriceList {
     title: string;
     categories: PriceCategory[];
+    ctaTitle: string;
+    ctaDescription: string;
+    buttonText: string;
+    buttonLink: string;
 }
 
 export interface PriceCategory {

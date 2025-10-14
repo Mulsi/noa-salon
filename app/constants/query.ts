@@ -44,7 +44,11 @@ export const PRICELIST_QUERY = groq`*[_type == "priceList"][0]{
             subcategoryServiceName,
             subcategoryServicePrice
         }
-    }
+    },
+    ctaTitle,
+    ctaDescription,
+    buttonText,
+    buttonLink
 }`;
 
 export const SERVICEDETAIL_QUERY = groq`*[_type == "servicesDetail"][0]{

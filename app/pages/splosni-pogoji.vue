@@ -8,7 +8,7 @@
 
             <!-- Content -->
             <div class="bg-light-brown rounded-3xl p-8 md:p-12">
-                <div class="prose prose-lg max-w-none flex flex-col gap-2">
+                <div class="policy-text prose prose-lg max-w-none flex flex-col gap-2">
                     <PortableText :value="generalConditionsData.description" />
                 </div>
             </div>
@@ -23,3 +23,11 @@ import { PortableText } from '@portabletext/vue';
 
 const { data: generalConditionsData } = await useSanityQuery<GeneralConditions>(GENERALCONDITIONS_QUERY);
 </script>
+
+<style lang="css">
+.policy-text {  
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+</style>
