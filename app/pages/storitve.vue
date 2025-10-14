@@ -14,7 +14,7 @@
             <!-- Services by Type -->
             <div v-for="(serviceType, typeIndex) in serviceDetailData.services" :key="typeIndex" class="mb-16">
                 <!-- Service Type Title -->
-                <h4 class="md:text-center mb-4 md:mb-8">{{ serviceType.serviceTypeTitle }}</h4>
+                <h4 :id="createSlug(serviceType.serviceTypeTitle)" class="md:text-center mb-4 md:mb-8 scroll-mt-20">{{ serviceType.serviceTypeTitle }}</h4>
                 
                 <!-- Service Items Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

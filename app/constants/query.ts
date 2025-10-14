@@ -4,6 +4,7 @@ export const GALLERY_QUERY = groq`*[_type == "gallery"][0]{images, title}`;
 export const HOMEPAGE_QUERY = groq`*[_type == "homepage"][0]{
     heroImageDesktop, 
     heroImageMobile, 
+    introduction,
     aboutImage, 
     aboutHeading, 
     aboutSubheading, 
@@ -15,7 +16,6 @@ export const HOMEPAGE_QUERY = groq`*[_type == "homepage"][0]{
         description
     },
     servicesTitle,
-    salonServiceTitle,
     salonServices[]->{
         title,
         image,
@@ -63,6 +63,12 @@ export const SERVICEDETAIL_QUERY = groq`*[_type == "servicesDetail"][0]{
     }
 }`;
 
+export const SERVICEDETAIL_HEADER_QUERY = groq`*[_type == "servicesDetail"][0]{
+    services[]{
+        serviceTypeTitle
+    }
+}`;
+
 export const ACADEMYDETAIL_QUERY = groq`*[_type == "academyDetail"][0]{
     title,
     description,
@@ -77,13 +83,23 @@ export const ACADEMYDETAIL_QUERY = groq`*[_type == "academyDetail"][0]{
     }
 }`;
 
+export const ACADEMYDETAIL_HEADER_QUERY = groq`*[_type == "academyDetail"][0]{
+    services[]{
+        serviceTypeTitle
+    }
+}`;
+
 export const SKINTHERAPY_QUERY = groq`*[_type == "skinTherapy"][0]{
     title,
     description,
     treatments[]{
         treatmentName,
         treatmentDescription
-    }
+    },
+    ctaTitle,
+    ctaDescription,
+    buttonText,
+    buttonLink
 }`;
 
 export const GENERALCONDITIONS_QUERY = groq`*[_type == "generalConditions"][0]{
@@ -98,5 +114,7 @@ export const COOKIES_QUERY = groq`*[_type == "cookies"][0]{
 
 export const ABOUT_QUERY = groq`*[_type == "about"][0]{
     title,
-    description
+    description,
+    image,
+    signature
 }`;

@@ -18,5 +18,20 @@ export const aboutType = defineType({
         of: [{type: 'block'}],
         validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: 'image',
+      title: 'Slika',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'signature',
+      title: 'Podpis',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
   ],
 })

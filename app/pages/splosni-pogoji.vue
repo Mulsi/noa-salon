@@ -8,7 +8,7 @@
 
             <!-- Content -->
             <div class="bg-light-brown rounded-3xl p-8 md:p-12">
-                <div class="prose prose-lg max-w-none">
+                <div class="prose prose-lg max-w-none flex flex-col gap-2">
                     <PortableText :value="generalConditionsData.description" />
                 </div>
             </div>

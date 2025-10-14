@@ -25,13 +25,13 @@
                 </div>
             </div>
 
-            <!-- Contact CTA Section -->
+            <!-- CTA Section -->
             <div class="mt-16 md:text-center bg-light-brown rounded-3xl p-8 md:p-12">
-                <h4 class="md:mb-4">Rezervirajte svoj termin</h4>
-                <p class="md:text-lg text-gray-700 mb-6">Kontaktirajte nas za več informacij ali rezervacijo termina.</p>
-                <NuxtLink to="mailto:noa@noa-salon.com" target="_blank">
+                <h4 v-if="skinTherapyData.ctaTitle" class="md:mb-4">{{ skinTherapyData.ctaTitle }}</h4>
+                <p v-if="skinTherapyData.ctaDescription" class="md:mb-4">{{ skinTherapyData.ctaDescription }}</p>
+                <NuxtLink v-if="skinTherapyData.buttonLink && skinTherapyData.buttonText" :to="skinTherapyData.buttonLink" target="_blank">
                     <Button class="bg-light-peach text-button-pink hover:bg-button-pink transition-colors duration-300 px-8 py-6 md:text-lg cursor-pointer">
-                        Kontakt
+                        {{ skinTherapyData.buttonText }}
                     </Button>
                 </NuxtLink>
             </div>

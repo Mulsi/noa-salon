@@ -3,6 +3,7 @@ import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 export interface Homepage {
     heroImageDesktop: SanityImageSource;
     heroImageMobile: SanityImageSource;
+    introduction: any[];
     aboutImage: SanityImageSource;
     aboutHeading: string;
     aboutSubheading: string;
@@ -10,7 +11,6 @@ export interface Homepage {
     testimonialsTitle: string;
     testimonials: Testimonial[];
     servicesTitle: string;
-    salonServiceTitle: string;
     salonServices: Service[];
     academyServiceTitle: string;
     academyServices: Service[];
@@ -86,6 +86,10 @@ export interface SkinTherapy {
     title: string;
     description: any[];
     treatments: Treatment[];
+    ctaTitle: string;
+    ctaDescription: string;
+    buttonText: string;
+    buttonLink: string;
 }
 
 export interface Treatment {
@@ -106,4 +110,6 @@ export interface Cookies {
 export interface About {
     title: string;
     description: any[];
+    image: SanityImageSource;
+    signature: string;
 }

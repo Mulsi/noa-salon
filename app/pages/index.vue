@@ -8,8 +8,20 @@
                 <h3 class="subheading">SALON & ACADEMY</h3>
             </div>
         </div>
+        
+        <!-- Introduction Section -->
+        <div class="bg-light-pink pb-8 pt-16 md:pt-20 lg:pt-40">
+            <div class="main-container px-4">
+                <div class="text-center">
+                    <p class="introduction">
+                        Butični salon sredi Ljubljane, v katerem lepota sreča udobje. Noa združuje strokovnost, estetiko in osebni pristop v udobno izkušnjo, ki ženskam vliva dodatno samozavest in občutek lepote.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
         <div class="bg-light-pink">
-            <div class="main-container flex flex-col-reverse md:flex-row gap-6 md:gap-8 px-4 py-16 md:py-24 lg:py-32">
+            <div class="main-container flex flex-col-reverse md:flex-row gap-6 md:gap-8 px-4 py-8 md:py-24 lg:py-32">
                 <div class="w-full md:w-1/2">
                     <img :src="urlFor(homepageData.aboutImage).url()" alt="Anja Kolenc" class="rounded-3xl w-full h-auto object-cover" />
                 </div>
@@ -23,7 +35,7 @@
             </div>
         </div>
         <div class="bg-light-pink">
-            <div class="main-container flex flex-col gap-4 items-center justify-center py-8">
+            <div class="main-container flex flex-col gap-4 items-center justify-center py-8 md:py-16">
                 <h2 class="w-full text-left md:text-center">{{ homepageData.testimonialsTitle }}</h2>
                 <Carousel
                     class="w-full md:w-[92%] mx-auto"
@@ -50,17 +62,13 @@
                 </Carousel>
             </div>
         </div>
-        <div class="bg-light-pink flex flex-col gap-4 items-center justify-center py-8">
+        <div class="bg-light-pink flex flex-col gap-4 items-center justify-center py-8 md:py-16">
             <div class="main-container">
                 <!-- Main services title -->
-                <h2 class="text-left md:text-center py-8 w-full">{{ homepageData.servicesTitle }}</h2>
+                <h2 class="text-left md:text-center pt-8 mb-4 w-full">{{ homepageData.servicesTitle }}</h2>
                 
                 <!-- Salon Services Section -->
                 <div class="mb-12">
-                    <!-- Title outside the grid -->
-                    <h4 class="mb-0 md:mb-6 text-left">
-                        -> {{ homepageData.salonServiceTitle }}
-                    </h4>
                     <!-- Grid without the title -->
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <div v-for="service in homepageData.salonServices" :key="service.title" class="bg-light-brown rounded-3xl overflow-hidden hover:shadow-lg transition-shadow duration-300">
@@ -78,19 +86,10 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Separator -->
-                <div class="w-full mb-8">
-                    <Separator class="bg-button-pink" />
-                </div>
                 
                 <!-- Academy Services Section -->
-                <div class="mb-8">
-                    <h2 class="md:hidden text-left md:text-center w-full">{{ homepageData.servicesTitle }}</h2>
-                    <!-- Title outside the grid -->
-                    <h4 class="mb-0 md:mb-6 text-left">
-                        -> {{ homepageData.academyServiceTitle }}
-                    </h4>
+                <div class="mb-8 md:pt-16">
+                    <h2 class="text-left md:text-center pt-8 mb-4 w-full">{{ homepageData.academyServiceTitle }}</h2>
                     <!-- Grid without the title -->
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <div v-for="service in homepageData.academyServices" :key="service.title" class="bg-light-brown rounded-3xl overflow-hidden hover:shadow-lg transition-shadow duration-300">
@@ -112,7 +111,7 @@
         </div>
         <div v-if="galleryData" class="bg-light-pink flex flex-col gap-4 items-center justify-center pt-8 pb-32">
             <div class="main-container">
-                <h2 class="w-full text-left md:text-center md:py-8">{{ galleryData.title }}</h2>
+                <h2 class="w-full text-left md:text-center md:pt-8 mb-4">{{ galleryData.title }}</h2>
                 <Carousel
                     class="w-full md:w-[92%] mx-auto"
                     :opts="{
@@ -146,12 +145,9 @@ import { PortableText } from '@portabletext/vue';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "~/components/ui/carousel";
 import { Card, CardContent } from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
-import { Separator } from "~/components/ui/separator";
 
 const { urlFor } = useSanityImageUrl();
 const { data: homepageData } = await useSanityQuery<Homepage>(HOMEPAGE_QUERY);
 const { data: galleryData } = await useSanityQuery<Gallery>(GALLERY_QUERY);
-
 const { width } = useWindowSize()
-
 </script>

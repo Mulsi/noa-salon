@@ -23,7 +23,7 @@
                             <NuxtLink to="/o-nas" class="hover:underline">O nas</NuxtLink>
                         </li>
                         <li>
-                            <span class="font-semibold">Kontakt:</span> 031 345 678
+                            <span class="font-semibold">Kontakt:</span> <a href="tel:030509050" class="hover:underline">030 509 050</a>
                         </li>
                     </ul>
                 </div>

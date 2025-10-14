@@ -24,6 +24,12 @@ export const homepageType = defineType({
         validation: (Rule) => Rule.required(),
       }),
       defineField({
+        name: 'introduction',
+        title: 'Uvodni tekst',
+        type: 'array',
+        of: [{type: 'block'}],
+      }),
+      defineField({
         name: 'aboutImage',
         title: 'About image',
         type: 'image',
@@ -70,13 +76,7 @@ export const homepageType = defineType({
       }),
       defineField({
         name: 'servicesTitle',
-        title: 'Services title',
-        type: 'string',
-        validation: (rule) => rule.required(),
-      }),
-      defineField({
-        name: 'salonServiceTitle',
-        title: 'Salon service title',
+        title: 'Salon services title',
         type: 'string',
         validation: (rule) => rule.required(),
       }),

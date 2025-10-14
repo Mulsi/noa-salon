@@ -51,6 +51,26 @@ export const skinTherapyType = defineType({
         ],
         validation: (Rule) => Rule.required().min(1),
     }),
+    defineField({
+      name: 'ctaTitle',
+      title: 'Naslov CTA',
+      type: 'string',
+    }),
+    defineField({
+      name: 'ctaDescription',
+      title: 'Opis',
+      type: 'string',
+    }),
+    defineField({
+      name: 'buttonText',
+      title: 'Tekst gumba',
+      type: 'string',
+    }),
+    defineField({
+      name: 'buttonLink',
+      title: 'Link gumba',
+      type: 'string',
+    }),
   ],
   preview: {
     select: {
