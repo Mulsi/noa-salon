@@ -9,5 +9,19 @@ import { skinTherapyType } from './skinTherapy'
 import { generalConditionsType } from './generalConditions'
 import { cookiesType } from './cookies'
 import { aboutType } from './about'
+import { topBarType } from './topBar'
 
-export const schemaTypes = [homepageType, testimonialsType, servicesType, galleryType, priceListType, servicesDetailType, academyDetailType, skinTherapyType, generalConditionsType, cookiesType, aboutType]
+export const schemaTypes = [
+    homepageType, 
+    testimonialsType, 
+    servicesType, 
+    galleryType, 
+    priceListType, 
+    servicesDetailType, 
+    academyDetailType, 
+    skinTherapyType, 
+    generalConditionsType, 
+    cookiesType, 
+    aboutType, 
+    topBarType
+]

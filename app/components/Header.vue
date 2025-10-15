@@ -4,7 +4,28 @@
         v-if="hasError" 
         :message="'Prišlo je do napake pri nalaganju podatkov. Prosimo, poskusite znova.'"
     />
-    <header v-else class="w-full h-16 bg-beige fixed top-0 left-0 right-0 z-50 shadow-sm">
+    <!-- Top Bar (disappears when scrolling) -->
+    <div 
+        v-if="!hasError && topBarData?.showTopBar" 
+        :class="{ 'top-bar-hidden': isScrolled }"
+        class="top-bar"
+    >
+        <NuxtMarquee class="h-8 bg-light-brown" :auto-fill="true">
+            <p class="font-bold mr-16 text-button-pink">
+                {{ topBarData?.text }}
+            </p>
+        </NuxtMarquee>
+    </div>
+    
+    <!-- Main Header (always sticky when scrolling) -->
+    <header 
+        v-if="!hasError" 
+        :class="{ 
+            'top-0': isScrolled || !topBarData?.showTopBar,
+            'top-8': !isScrolled && topBarData?.showTopBar 
+        }" 
+        class="w-full h-16 bg-beige fixed left-0 right-0 z-50 shadow-sm transition-all duration-300"
+    >
         <div class="main-container h-full flex items-center justify-between px-4">
             <!-- Logo on the left -->
             <NuxtLink to="/" class="header-logo text-2xl font-bold text-button-pink hover:opacity-80 transition-opacity">
@@ -154,7 +175,11 @@
         <Transition name="slide">
             <div 
                 v-if="isMenuOpen"
-                class="md:hidden fixed top-16 left-0 right-0 bottom-0 bg-beige shadow-lg"
+                :class="{ 
+                    'top-16': isScrolled || !topBarData?.showTopBar,
+                    'top-22': !isScrolled && topBarData?.showTopBar 
+                }"
+                class="md:hidden fixed left-0 right-0 bottom-0 bg-beige shadow-lg transition-all duration-300"
             >
                 <nav class="flex flex-col px-4 gap-2">
                     <!-- Storitve with Submenu -->
@@ -273,9 +298,9 @@
 </template>
 
 <script setup lang="ts">
-import type { AcademyDetail, ServiceDetail } from '~/models/sanity';
+import type { AcademyDetail, ServiceDetail, TopBar } from '~/models/sanity';
 import Button from './ui/button/Button.vue';
-import { ACADEMYDETAIL_HEADER_QUERY, SERVICEDETAIL_HEADER_QUERY } from '~/constants/query';
+import { ACADEMYDETAIL_HEADER_QUERY, SERVICEDETAIL_HEADER_QUERY, TOPBAR_QUERY } from '~/constants/query';
 
 const route = useRoute();
 const isMenuOpen = ref(false);
@@ -283,9 +308,13 @@ const showStoritveDropdown = ref(false);
 const showStoritveSubmenu = ref(false);
 const showAcademyDropdown = ref(false);
 const showAcademySubmenu = ref(false);
+const isScrolled = ref(false);
 
 const { data: serviceDetailData, error: serviceDetailError } = await useSanityQuery<ServiceDetail>(SERVICEDETAIL_HEADER_QUERY);
 const { data: academyDetailData, error: academyDetailError } = await useSanityQuery<AcademyDetail>(ACADEMYDETAIL_HEADER_QUERY);
+const { data: topBarData, error: topBarError } = await useSanityQuery<TopBar>(TOPBAR_QUERY);
+
+console.log(topBarData.value);
 
 const hasError = computed(() => !serviceDetailData.value || !academyDetailData.value || serviceDetailError.value || academyDetailError.value);
 
@@ -346,15 +375,50 @@ watch(isMenuOpen, (isOpen) => {
     }
 });
 
+// Scroll detection for top bar behavior
+const handleScroll = () => {
+    if (process.client) {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        isScrolled.value = scrollTop > 16; // Hide top bar after 50px scroll
+    }
+};
+
+// Add scroll event listener
+onMounted(() => {
+    if (process.client) {
+        window.addEventListener('scroll', handleScroll);
+    }
+});
+
 // Cleanup on unmount
 onUnmounted(() => {
     if (process.client) {
         document.body.style.overflow = '';
+        window.removeEventListener('scroll', handleScroll);
     }
 });
 </script>
 
 <style scoped>
+/* Top Bar Styling */
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2rem;
+    background: linear-gradient(135deg, #beaeaa 0%, #d7cfc7 100%);
+    border-bottom: 1px solid #beaeaa;
+    z-index: 60;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(66, 61, 60, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.top-bar-hidden {
+    transform: translateY(-100%);
+}
+
 /* Slide transition for mobile menu */
 .slide-enter-active,
 .slide-leave-active {

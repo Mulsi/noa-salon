@@ -122,3 +122,8 @@ export const ABOUT_QUERY = groq`*[_type == "about"][0]{
     image,
     signature
 }`;
+
+export const TOPBAR_QUERY = groq`*[_type == "topBar"][0]{
+    showTopBar,
+    text
+}`;

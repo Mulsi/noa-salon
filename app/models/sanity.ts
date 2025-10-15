@@ -117,3 +117,8 @@ export interface About {
     image: SanityImageSource;
     signature: string;
 }
+
+export interface TopBar {
+    showTopBar: boolean;
+    text: string;
+}
