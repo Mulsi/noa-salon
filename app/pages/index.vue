@@ -1,5 +1,4 @@
 <template>
-    <!-- Error Display -->
     <ErrorDisplay 
         v-if="hasError" 
         :message="'Prišlo je do napake pri nalaganju podatkov. Prosimo, poskusite znova.'"

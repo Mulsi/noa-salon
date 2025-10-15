@@ -52,6 +52,14 @@
         <priority>0.8</priority>
     </url>
     
+    <!-- Gallery -->
+    <url>
+        <loc>https://noa-salon.com/galerija</loc>
+        <lastmod>2025-10-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
     <!-- General Conditions -->
     <url>
         <loc>https://noa-salon.com/splosni-pogoji</loc>

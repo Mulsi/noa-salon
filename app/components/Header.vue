@@ -139,6 +139,15 @@
                 >
                     Cenik
                 </NuxtLink>
+                <NuxtLink 
+                    to="/galerija"
+                    :class="[
+                        'cursor-pointer transition-all duration-200',
+                        isActive('/galerija') ? 'text-button-pink font-bold' : 'hover:text-button-pink'
+                    ]"
+                >
+                    Galerija
+                </NuxtLink>
                 <Button asChild variant="secondary" class="bg-button-pink text-white hover:bg-button-pink-hover cursor-pointer">
                     <NuxtLink to="https://form.lime-booking.com/sl/noa/service" target="_blank">Naroči se</NuxtLink>
                 </Button>
@@ -282,6 +291,16 @@
                         ]"
                     >
                         Cenik
+                    </NuxtLink>
+                    <NuxtLink 
+                        to="/galerija"
+                        @click="closeMenu"
+                        :class="[
+                            'p-2 rounded-lg cursor-pointer transition-all duration-200',
+                            isActive('/galerija') ? 'bg-button-pink text-white font-bold' : 'hover:bg-light-pink'
+                        ]"
+                    >
+                        Galerija
                     </NuxtLink>
                     <NuxtLink 
                         to="https://form.lime-booking.com/sl/noa/service" 

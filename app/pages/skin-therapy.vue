@@ -5,7 +5,7 @@
         :message="'Prišlo je do napake pri nalaganju podatkov. Prosimo, poskusite znova.'"
     />
     <div v-else-if="skinTherapyData" class="bg-light-pink min-h-screen">
-        <div class="main-container py-16">
+        <div class="main-container py-16 mt-8">
             <!-- Page Title -->
             <div class="md:text-center mt-8 mb-4 md:my-8">
                 <h2>{{ skinTherapyData.title }}</h2>

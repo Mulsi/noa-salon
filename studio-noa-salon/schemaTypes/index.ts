@@ -10,8 +10,10 @@ import { generalConditionsType } from './generalConditions'
 import { cookiesType } from './cookies'
 import { aboutType } from './about'
 import { topBarType } from './topBar'
+import { galleryDetailType } from './galleryDetail'
 
 export const schemaTypes = [
+    topBarType,
     homepageType, 
     testimonialsType, 
     servicesType, 
@@ -23,5 +25,5 @@ export const schemaTypes = [
     generalConditionsType, 
     cookiesType, 
     aboutType, 
-    topBarType
+    galleryDetailType
 ]

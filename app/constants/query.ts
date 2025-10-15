@@ -127,3 +127,8 @@ export const TOPBAR_QUERY = groq`*[_type == "topBar"][0]{
     showTopBar,
     text
 }`;
+
+export const GALLERYDETAIL_QUERY = groq`*[_type == "galleryDetail"][0]{
+    title,
+    images
+}`;
