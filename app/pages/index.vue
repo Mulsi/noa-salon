@@ -162,6 +162,12 @@ const hasError = computed(() => !homepageData.value || !galleryData.value || hom
 // SEO Meta Tags
 useHead({
     title: 'Noa Salon - Where beauty meets comfort',
+    link: [
+        {
+            rel: 'canonical',
+            href: 'https://noa-salon.com/'
+        }
+    ],
     meta: [
         {
             name: 'description',

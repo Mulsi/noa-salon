@@ -57,6 +57,12 @@ const hasError = computed(() => !academyDetailData.value || academyDetailError.v
 // SEO Meta Tags
 useHead({
     title: 'Noa Academy - Izobraževanja in tečaji',
+    link: [
+        {
+            rel: 'canonical',
+            href: 'https://noa-salon.com/academy'
+        }
+    ],
     meta: [
         {
             name: 'description',

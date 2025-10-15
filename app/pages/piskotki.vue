@@ -26,6 +26,12 @@ const { data: cookiesData } = await useSanityQuery<Cookies>(COOKIES_QUERY);
 // SEO Meta Tags
 useHead({
     title: 'Politika piškotkov - Noa Salon',
+    link: [
+        {
+            rel: 'canonical',
+            href: 'https://noa-salon.com/piskotki'
+        }
+    ],
     meta: [
         {
             name: 'description',

@@ -56,6 +56,12 @@ const hasError = computed(() => !skinTherapyData.value || skinTherapyError.value
 // SEO Meta Tags
 useHead({
     title: 'Kozmetika in terapija kože - Noa Salon',
+    link: [
+        {
+            rel: 'canonical',
+            href: 'https://noa-salon.com/skin-therapy'
+        }
+    ],
     meta: [
         {
             name: 'description',

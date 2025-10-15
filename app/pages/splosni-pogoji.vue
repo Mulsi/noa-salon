@@ -26,6 +26,12 @@ const { data: generalConditionsData } = await useSanityQuery<GeneralConditions>(
 // SEO Meta Tags
 useHead({
     title: 'Splošni pogoji - Noa Salon',
+    link: [
+        {
+            rel: 'canonical',
+            href: 'https://noa-salon.com/splosni-pogoji'
+        }
+    ],
     meta: [
         {
             name: 'description',

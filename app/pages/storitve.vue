@@ -61,6 +61,12 @@ const hasError = computed(() => !serviceDetailData.value || serviceDetailError.v
 // SEO Meta Tags
 useHead({
     title: 'Storitve - Noa Salon',
+    link: [
+        {
+            rel: 'canonical',
+            href: 'https://noa-salon.com/storitve'
+        }
+    ],
     meta: [
         {
             name: 'description',

@@ -45,6 +45,12 @@ const { urlFor } = useSanityImageUrl();
 // SEO Meta Tags
 useHead({
     title: 'O nas - Noa Salon',
+    link: [
+        {
+            rel: 'canonical',
+            href: 'https://noa-salon.com/o-nas'
+        }
+    ],
     meta: [
         {
             name: 'description',

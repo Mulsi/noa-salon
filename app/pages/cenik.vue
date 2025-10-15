@@ -78,6 +78,12 @@ const hasError = computed(() => !priceListData.value || priceListError.value);
 // SEO Meta Tags
 useHead({
     title: 'Cenik - Noa Salon',
+    link: [
+        {
+            rel: 'canonical',
+            href: 'https://noa-salon.com/cenik'
+        }
+    ],
     meta: [
         {
             name: 'description',
