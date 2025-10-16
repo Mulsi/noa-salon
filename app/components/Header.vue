@@ -333,9 +333,7 @@ const { data: serviceDetailData, error: serviceDetailError } = await useSanityQu
 const { data: academyDetailData, error: academyDetailError } = await useSanityQuery<AcademyDetail>(ACADEMYDETAIL_HEADER_QUERY);
 const { data: topBarData, error: topBarError } = await useSanityQuery<TopBar>(TOPBAR_QUERY);
 
-console.log(topBarData.value);
-
-const hasError = computed(() => !serviceDetailData.value || !academyDetailData.value || serviceDetailError.value || academyDetailError.value);
+const hasError = computed(() => !serviceDetailData.value || !academyDetailData.value || serviceDetailError.value || academyDetailError.value || topBarError.value);
 
 // Extract service type titles
 const serviceTypes = computed(() => {

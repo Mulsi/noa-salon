@@ -34,6 +34,11 @@ export interface Gallery {
     images: SanityImageSource[];
 }
 
+export interface GalleryDetail {
+    title: string;
+    galleryGroups: Gallery[]
+}
+
 export interface PriceList {
     title: string;
     categories: PriceCategory[];

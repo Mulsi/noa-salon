@@ -20,6 +20,9 @@
 }
 
 @media screen and (min-width: 1024px) {
+    .main-container {
+        margin: 0 auto;
+    }
     h1 {
         font-size: 14rem !important;
     }
