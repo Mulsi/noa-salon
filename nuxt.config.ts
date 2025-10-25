@@ -3,7 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
-  modules: ['@nuxtjs/sanity', '@nuxt/fonts', 'shadcn-nuxt', '@vueuse/nuxt', 'shadcn-nuxt', '@nuxtjs/google-fonts', '@nuxtjs/seo', 'nuxt-gtag', 'nuxt-marquee'],
+  modules: ['@nuxtjs/sanity', '@nuxt/fonts', '@vueuse/nuxt', 'shadcn-nuxt', '@nuxtjs/google-fonts', '@nuxtjs/seo', 'nuxt-gtag', 'nuxt-marquee'],
   devtools: { enabled: true },
   site: {
     url: 'https://noa-salon.com',

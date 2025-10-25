@@ -17,7 +17,7 @@
 
                 <!-- Middle Column: Podjetje -->
                 <div>
-                    <h5 class="mb-4">Podjetje</h5>
+                    <h5 class="mb-4">Salon</h5>
                     <ul class="space-y-2">
                         <li>
                             <NuxtLink to="/o-nas" class="hover:underline">O nas</NuxtLink>
@@ -25,6 +25,10 @@
                         <li>
                             <span class="font-semibold">Kontakt:</span> <a href="tel:030509050" class="hover:underline">030 509 050</a>
                         </li>
+                        <div>
+                            <p>Anja Kolenc s.p.</p>
+                            <p>Šmartinska c. 56E, 1000 Ljubljana, Slovenia</p>
+                        </div>
                     </ul>
                 </div>
 
